@@ -14,11 +14,13 @@ namespace Publisher
                 Console.WriteLine("Enter a message. 'q' to quit.");
                 while ((input = Console.ReadLine()) != "q")
                 {
-                    //bus.Publish(new TextMessage
-                    //{
-                    //    Text = input
-                    //});
+                    // publish message of type TextMessage
+                    bus.Publish(new TextMessage
+                    {
+                        Text = input
+                    });
 
+                    // publish message of type ObjectMessage
                     bus.Publish(new ObjectMessage()
                     {
                         OperationDate = DateTime.Now,
