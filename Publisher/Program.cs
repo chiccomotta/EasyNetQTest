@@ -15,10 +15,10 @@ namespace Publisher
                 while ((input = Console.ReadLine()) != "q")
                 {
                     // publish message of type TextMessage
-                    bus.Publish(new TextMessage
-                    {
-                        Text = input
-                    });
+                    //bus.Publish(new TextMessage
+                    //{
+                    //    Text = input
+                    //});
 
                     // publish message of type ObjectMessage
                     bus.Publish(new ObjectMessage()
