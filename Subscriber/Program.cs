@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using EasyNetQ;
 using Messages;
 
@@ -9,7 +10,7 @@ namespace Subscriber
         static void Main(string[] args)
         {
             using (var bus = RabbitHutch.CreateBus("host=localhost"))
-            {
+            {                
                 bus.Subscribe<TextMessage>("test", HandleTextMessage);
 
                 /***
@@ -31,7 +32,7 @@ namespace Subscriber
 
         static void HandleTextMessage(TextMessage textMessage)
         {
-            Console.WriteLine("Got message: {0}", textMessage.Text);
+            Console.WriteLine("Got message: {0}", textMessage.Text);           
         }
 
         static void HandleObjectMessage(ObjectMessage objMessage)
